@@ -1,0 +1,237 @@
+$primary-bg-color: #171A21;   // Fundo principal
+$secondary-bg-color: #2A475E; // Barras e áreas destacadas
+$primary-text-color: #C7D5E0; // Textos principais
+$secondary-text-color: #8F98A0; // Textos secundários
+$highlight-color: #66C0F4;    // Destaques e botões
+$highlight-hover-color: #549BBE; // Cor dos botões ao passar o mouse
+
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+
+body {
+    background-color: $primary-bg-color;
+    color: $primary-text-color;
+        font-family: "Rubik", sans-serif;
+        font-optical-sizing: auto;
+}
+
+.container{
+    margin: 30% auto;
+    width: 100%;
+    max-width: 1366px
+}
+
+.navbar{
+    height: 8%;
+    background-color: $secondary-bg-color;
+    .nav-link,button {
+        color: $primary-text-color !important;
+        
+        &:hover {
+            color: $highlight-color !important;
+        }
+    }
+}
+
+
+
+h1, h2, h3, h4 {
+    color: $primary-text-color;
+}
+p {
+    color: $secondary-text-color;
+}
+
+.inicio{
+    display: flex;
+    justify-content: space-between;
+    h1{
+        font-size: 80px;
+    }
+    h3{
+        font-size: 45px;
+    }
+}
+
+.social-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+$social-button-size: 64px;
+$social-button-icon-size: 0.4;
+$social-button-background: #C7D5E0;
+$social-button-active-color: #C7D5E0;
+$social-button-transition-time: 0.3s;
+
+$social-button-colors: (
+  'mail':#dd4b39,
+  'linkedin': #0077b5,
+  'github': #6e5494,
+  'instagram': #e4405f,
+
+);
+
+.social-button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  width: $social-button-size;
+  height: $social-button-size;
+  text-decoration: none;
+  border-radius: 100%;
+  background: $social-button-background;
+  text-align: center;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    display: block;
+    width: 0;
+    height: 0;
+    border-radius: 100%;
+    transition: $social-button-transition-time;
+  }
+
+  &:focus,
+  &:hover {
+    color: $social-button-active-color;
+
+    &::after {
+      width: calc(100% + 2px);
+      height: calc(100% + 2px);
+      margin-left: calc(-50% - 1px);
+    }
+  }
+
+  i{
+    position: relative;
+    z-index: 1;
+    transition: $social-button-transition-time;
+  }
+
+  i {
+    font-size: $social-button-size * $social-button-icon-size;
+  }
+
+  @each $name, $color in $social-button-colors {
+    &--#{$name} {
+      color: $color;
+
+      &::after {
+        background: $color;
+      }
+    }
+  }
+}
+
+.sobre-mim{
+    h2{
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+}
+
+.projetos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2{
+        
+        font-size: 40px;
+        margin-bottom: 50px;
+    }
+    p{
+        margin-top: 20px;
+    }
+    .card-body{
+        border: 9px black;
+    }
+}
+
+.card {
+    background-color: $secondary-bg-color;
+    border: 1px solid $primary-bg-color;
+    color: $primary-text-color;
+
+    .card-title {
+        color: $primary-text-color;
+    }
+
+    .card-text {
+        color: $secondary-text-color;
+    }
+
+    &:hover {
+        background-color: lighten($secondary-bg-color, 10%);
+    }
+}
+
+
+.habilidades{
+    display: flex;
+    background-color: $secondary-bg-color;
+    padding: 20px;
+    border-radius: 8px;
+    h2{
+        margin-bottom: 4%;
+    }
+
+    p {
+        color: $primary-text-color;
+        margin: auto 9%;
+    }
+}
+
+
+
+.btnHld {
+    background-color: $highlight-color;
+    border-color: $highlight-color;
+    color: $primary-bg-color;
+    width: 90px;
+    height: 30px;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: $highlight-hover-color;
+        border-color: $highlight-hover-color;
+        border-radius: 7px;
+    }
+}
+
+/* Footer (rodapé) */
+footer {
+    background-color: $secondary-bg-color;
+    color: $primary-text-color;
+    padding: 20px;
+    text-align: center;
+}
+
+// Animations
+
+.tSection{
+    opacity: 0;
+    filter: blur(9%);
+    transition: all 2.5s;
+
+}
+
+.show{
+    opacity: 1;
+}
+
+.anchor{
+    opacity: 0;
+}
